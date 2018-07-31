@@ -1,0 +1,19 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "A map of my favorite places",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewisisgood/neighborhood-map.git"
+  },
+  "author": "Lewis King",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lewisisgood/neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/lewisisgood/neighborhood-map#readme"
+}
