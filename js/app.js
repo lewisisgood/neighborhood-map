@@ -36,6 +36,9 @@ var locations = [
 	},
 ];
 
+
+
+
 var Location = function(data) {
 	var self = this;
 	this.name = ko.observable(data.name);
@@ -45,7 +48,9 @@ var Location = function(data) {
 	this.hidden = ko.observable(data.hidden);
 	
 	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id() + '/photos?client_id=IHS0HDH55K55KN03E4MRRVTKTYP00UQEGUAG1SAGM4BUTHOI&client_secret=PE5PUPMEZZWKT2PNIOVJEILRESUMW1NMPGWPTSJHCGN2UOR4&v=20180323';
-	console.log(foursquareUrl);
+	
+	/* Take out foursquare call during dev--exceeding quota
+
 	var foursquareRequestTimeout = setTimeout(function(){
 		//TODO Fix this -- image of failed to load
 		console.log("failed to get foursquare image");
@@ -65,10 +70,16 @@ var Location = function(data) {
 	        clearTimeout(foursquareRequestTimeout);
 	    }
 	});
+	*/
 }
 
+// Create a new blank array for all the listing markers.
+var markers = [];
 var ViewModel = function() {
 	var self = this;
+
+	//TODO: hook up to the html
+	this.searchString = ko.observable('');
 
 	this.locationList = ko.observableArray([]);
 
@@ -81,18 +92,7 @@ var ViewModel = function() {
 	this.selectLocation = function(selectedLocation) {
 		self.currentLocation(selectedLocation);
 	};
-}
 
-// Create a map variable
-var map;
-// Create a new blank array for all the listing markers.
-var markers = [];
- // Function to initialize the map within the map div
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 30.2491225, lng: -97.7815471},
-		zoom: 13
-	});
 	var largeInfowindow = new google.maps.InfoWindow();
 
 	// The following group uses the location array to create an array of markers on initialize.
@@ -116,7 +116,18 @@ function initMap() {
 	    	populateInfoWindow(this, largeInfowindow);
 	  });
     }
+
+	//TODO: add filter functionality to viewmodel
+	//If the search string is not found in location.name, set location.hidden to true
+
+	this.locationsFiltered = ko.computed( function() {
+		return _.filter(self.locationList(), function(location) { 
+			return location.name.indexOf(this.searchString()) != -1; 
+		})
+	}, this);
 }
+
+
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
@@ -141,3 +152,4 @@ function populateInfoWindow(marker, infowindow) {
 
 
 ko.applyBindings(new ViewModel());
+initMap();
