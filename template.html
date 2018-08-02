@@ -19,18 +19,18 @@
                         <tr><h2>Neighborhood Map</h2></tr>
                     </thead>
                     <!--TODO: add filter text box, button, and "hidden" functionality-->
-
-                    <tbody data-bind="foreach: locationList">
+                    <input type="text" id="filterInput" class="filter-input" data-bind="textInput: searchString" placeholder="Search...">
+                    <tbody id="location-listing" data-bind="foreach: locationsFiltered">
                         <tr>
                             <!--TODO: connect location list items to the markers-->
-                            <td data-bind="click: $parent.selectLocation, text: name"></td>
+                            <td id="location-item" class="location-item" data-bind="click: $parent.selectLocation, text: name"></td>
                         </tr>
                     </tbody>
                 </table>
                 <!--TODO: implement correct window sizing in CSS-->
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                
             </div>
-            <div id="map" class="map col-md-9">
+            <div id="map" class="map-container-4 col-md-9">
             </div>
         </div>
     </div>

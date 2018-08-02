@@ -25,6 +25,7 @@ function populateInfoWindow(marker, infowindow) {
 	}
 }
 
+//TODO: separate into just view ?
 function initMap(googleMaps) {
 
 	console.log("initMap called");

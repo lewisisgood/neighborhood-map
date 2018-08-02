@@ -9,6 +9,7 @@ html {
 body {
 	font-family: Montserrat, sans-serif;
 	font-size: 14px;
+	background-color: black;
 }
 
 h1, 
@@ -17,13 +18,18 @@ h3,
 h4, 
 h5, 
 h6, 
-p {
-	color: #2d3c49;
+p,
+.location-item {
+	color: lightgrey;
 	margin: 0; 
 }
 
 h6 {
 	font-weight: bold;
+}
+
+.map {
+	height: 100%;
 }
 
 .location-list {
@@ -32,13 +38,23 @@ h6 {
 	solid #ccc;
 }
 
-/*TODO: CSS breakpoints*/
+.filter-input {
+    background-image: url('../img/filtericon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-size: 20px 20px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
 
+/*TODO: CSS breakpoints*/
 @media screen and (max-width: 768px) {
 	.location-list {
 		width: 20%;
+		height: 360px;
 	}
-
 	.map {
 		width: 80%;
 	}
@@ -47,8 +63,8 @@ h6 {
 @media screen and (min-width: 769px) {
 	.location-list {
 		width: 30%;
+		height: 560px;
 	}
-
 	.map {
 		width: 70%;
 	}
@@ -61,5 +77,8 @@ h6 {
 		width: 1024px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+	.location-list {
+		height: 660px;
 	}
 }

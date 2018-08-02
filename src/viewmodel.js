@@ -17,18 +17,18 @@ var ViewModel = function() {
 
 	this.currentLocation = ko.observable( this.locationList()[0] );
 
+	// Currently not being used
 	this.selectLocation = function(selectedLocation) {
 		self.currentLocation(selectedLocation);
 	};
-
-	//TODO: add filter functionality to viewmodel
-	//If the search string is not found in location.name, set location.hidden to true
-
+	
+	// If the search string is not found in location.name, set location.hidden to true
 	this.locationsFiltered = ko.computed( function() {
 		return _.filter(self.locationList(), function(location) { 
-			return location.name.indexOf(self.searchString()) != -1; 
+			return location.name.toLowerCase().indexOf(self.searchString().toLowerCase()) != -1; 
 		})
 	}, this);
+
 }
 
 module.exports = new ViewModel();

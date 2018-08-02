@@ -12,7 +12,8 @@ module.exports = {
   module: {
     rules: [
       {test: /\.(html)$/, use: {loader: 'html-loader', options: {removeComments: false}}},
-      {test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader},'css-loader']}
+      {test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader},'css-loader']},
+      {test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,loader: 'url-loader',options: {limit: 10000}}
     ]
   },
 
