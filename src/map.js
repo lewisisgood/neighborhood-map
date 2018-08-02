@@ -1,4 +1,4 @@
-const locations = require('./constants.js').locations;
+const viewmodel = require('./viewmodel.js');
 
 // Create a map variable
 var map;
@@ -27,8 +27,6 @@ function populateInfoWindow(marker, infowindow) {
 
 //TODO: separate into just view ?
 function initMap(googleMaps) {
-
-	console.log("initMap called");
 	map = new googleMaps.Map(document.getElementById('map'), {
 		center: {lat: 30.2491225, lng: -97.7815471},
 		zoom: 13
@@ -37,10 +35,10 @@ function initMap(googleMaps) {
 	var largeInfowindow = new googleMaps.InfoWindow();
 
 	// The following group uses the location array to create an array of markers on initialize.
-    for (var i = 0; i < locations.length; i++) {
-      // Get the position from the location array.
-	    var position = locations[i].coordinates;
-	    var title = locations[i].name;
+    for (var i = 0; i < viewmodel.locationList.length; i++) {
+      	// Get the position from the location array.
+	    var position = viewmodel.locationList[i].coordinates;
+	    var title = viewmodel.locationList[i].name;
 	    //TODO: add an image to the markers info window
 	    //var imgSrc = ko.observable(locations[i].imgSrc);
 	    // Create a marker per location, and put into markers array.
@@ -49,19 +47,21 @@ function initMap(googleMaps) {
 	    	title: title,
 	    	animation: googleMaps.Animation.DROP,
 	    	id: i,
-	    	map: map
+	    	map: map,
+	    	hidden: true
 	    });
 	    // Push the marker to our array of markers.
 	    markers.push(marker);
 	    // Create an onclick event to open an infowindow at each marker.
 	    marker.addListener('click', function() {
 	    	populateInfoWindow(this, largeInfowindow);
-	  });
+	  	});
+	  	viewmodel.locationList[i].marker = marker;
     }
+
+    viewmodel.map = map;
 }
 
 module.exports = {
-	map: map,
-	markers: markers,
 	init: initMap
 }

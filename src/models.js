@@ -4,12 +4,11 @@ const $ = require('jquery');
 var Location = function(data) {
 	var self = this;
 	this.name = data.name;
-	this.coordinates = ko.observable(data.coordinates);
-	this.foursquare_venue_id = ko.observable(data.foursquare_venue_id);
+	this.coordinates = data.coordinates;
+	this.foursquare_venue_id = data.foursquare_venue_id;
 	this.imgSrc = ko.observable(data.imgSrc);
-	this.hidden = ko.observable(data.hidden);
 	
-	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id() + '/photos?client_id=IHS0HDH55K55KN03E4MRRVTKTYP00UQEGUAG1SAGM4BUTHOI&client_secret=PE5PUPMEZZWKT2PNIOVJEILRESUMW1NMPGWPTSJHCGN2UOR4&v=20180323';
+	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id + '/photos?client_id=IHS0HDH55K55KN03E4MRRVTKTYP00UQEGUAG1SAGM4BUTHOI&client_secret=PE5PUPMEZZWKT2PNIOVJEILRESUMW1NMPGWPTSJHCGN2UOR4&v=20180323';
 	
 	/* Take out foursquare call during dev--exceeding quota
 
