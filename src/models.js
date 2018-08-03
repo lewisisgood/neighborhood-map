@@ -1,5 +1,7 @@
 const ko = require('knockout');
 const $ = require('jquery');
+const config = require('../config.json');
+
 
 var Location = function(data) {
 	var self = this;
@@ -8,9 +10,8 @@ var Location = function(data) {
 	this.foursquare_venue_id = data.foursquare_venue_id;
 	this.imgSrc = ko.observable(data.imgSrc);
 	
-	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id + '/photos?client_id=IHS0HDH55K55KN03E4MRRVTKTYP00UQEGUAG1SAGM4BUTHOI&client_secret=PE5PUPMEZZWKT2PNIOVJEILRESUMW1NMPGWPTSJHCGN2UOR4&v=20180323';
-	
-	/* Take out foursquare call during dev--exceeding quota
+	/*
+	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id + '/photos'
 
 	var foursquareRequestTimeout = setTimeout(function(){
 		//TODO Fix this -- image of failed to load
@@ -21,6 +22,7 @@ var Location = function(data) {
 	$.ajax({
 	    url: foursquareUrl,
 	    dataType: "json",
+	    data: config.foursquare,
 	    success: function( response ) {
 	        var firstpic = response.response.photos.items[0];
 	        var prefix = firstpic.prefix;
