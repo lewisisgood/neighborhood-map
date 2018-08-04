@@ -34,6 +34,7 @@ function initMap(googleMaps) {
 	    marker.startBounce = function () {
 		    this.setAnimation(googleMaps.Animation.BOUNCE);
 		};
+		
 		marker.stopBounce = function() {
 			this.setAnimation(null);
 		};

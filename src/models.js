@@ -1,16 +1,16 @@
 const ko = require('knockout');
 const $ = require('jquery');
 const config = require('../config.json');
-
+const imgNotAvailable = require('./constants.js').imgNotAvailable;
 
 var Location = function(data) {
 	var self = this;
 	this.name = data.name;
 	this.coordinates = data.coordinates;
 	this.foursquare_venue_id = data.foursquare_venue_id;
-	this.imgSrc = ko.observable(data.imgSrc);
+	this.imgSrc = ko.observable(imgNotAvailable);
 	
-	/*
+	/* Add back in when testing done
 	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id + '/photos'
 
 	var foursquareRequestTimeout = setTimeout(function(){

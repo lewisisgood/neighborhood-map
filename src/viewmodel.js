@@ -51,8 +51,9 @@ var ViewModel = function() {
 		if (self.infoWindow.marker != marker) {
 		  	self.infoWindow.marker = marker;
 		  	// TODO: Add picture from Foursquare to the map
+		  	console.log('<img src="' + self.currentLocation().imgSrc() + '"></div>');
 		  	self.infoWindow.setContent('<div>' + marker.title + 
-		 		'</div><br><div><img src="https://www.ereplacementparts.com/images/photo_not_available.png"></div>');
+		 		'</div><br><div><img src="' + self.currentLocation().imgSrc() + '"></div>');
 		  	self.infoWindow.open(self.map, marker);
 		  	// Make sure the marker property is cleared if the infowindow is closed.
 		  	self.infoWindow.addListener('closeclick', function() {
@@ -64,6 +65,7 @@ var ViewModel = function() {
 
 	this.selectLocation = function(selectedLocation) {
 		self.currentLocation(selectedLocation);
+		// TODO: (maybe) Ensure marker of currentLocation continues to bounce when the filter changes
 		self.locationsFiltered().forEach(function(location) {
 			if (location == selectedLocation)
 				location.marker.startBounce();
