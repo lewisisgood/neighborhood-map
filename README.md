@@ -32,10 +32,10 @@ npx webpack --watch
 Navigate to the dist folder:
 
 ```
-cd dist
+cd dist/
 ```
 
-Open ```index.html``` in the browser interact with the neighborhood map.
+Open ```index.html``` in the browser, and have some fun with the neighborhood map.
 
 
 ## Built With
