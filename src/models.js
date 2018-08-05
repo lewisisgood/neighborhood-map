@@ -15,7 +15,6 @@ var Location = function(data) {
 	this.foursquare_venue_id = data.foursquare_venue_id;
 	this.imgSrc = ko.observable(imgNotAvailable);
 
-	/* Add back in when testing done
 	var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + this.foursquare_venue_id + '/photos'
 
 	var foursquareRequestTimeout = setTimeout(function(){
@@ -38,7 +37,6 @@ var Location = function(data) {
 			clearTimeout(foursquareRequestTimeout);
 		}
 	});
-	*/
 }
 
 module.exports = {
