@@ -2,6 +2,12 @@ const models = require('./models.js');
 const constants = require('./constants.js');
 const ko = require('knockout');
 
+
+/*
+* Updates the Location model based on user actions in the app
+* Handles the search string functionality, as well as populating the
+* selected location marker's info window
+*/
 var ViewModel = function() {
 	var self = this;
 
@@ -26,7 +32,7 @@ var ViewModel = function() {
 			location.marker.setMap(null);
 	}
 
-	// If the search string is not found in location.name, set location.hidden to true
+	// If the search string is not found in location.name, hides the marker on the map
 	this.locationsFiltered = ko.computed( function() {
 
 		var filtered = [];
@@ -43,19 +49,18 @@ var ViewModel = function() {
 		return filtered;
 	}, this);
 
-	// This function populates the infowindow when the marker is clicked. We'll only allow
+	// Populates the infowindow when the marker is clicked. Only allows
 	// one infowindow which will open at the marker that is clicked, and populate based
 	// on that markers position.
 	this.populateInfoWindow = function(marker) {
 		// Check to make sure the infowindow is not already opened on this marker.
 		if (self.infoWindow.marker != marker) {
 		  	self.infoWindow.marker = marker;
-		  	// TODO: Add picture from Foursquare to the map
 		  	console.log('<img src="' + self.currentLocation().imgSrc() + '"></div>');
 		  	self.infoWindow.setContent('<div>' + marker.title +
 		 		'</div><br><div><img src="' + self.currentLocation().imgSrc() + '"></div>');
 		  	self.infoWindow.open(self.map, marker);
-		  	// Make sure the marker property is cleared if the infowindow is closed.
+		  	// Ensure the marker property is cleared if the infowindow is closed.
 		  	self.infoWindow.addListener('closeclick', function() {
 		    	self.infoWindow.marker = null;
 		    	marker.stopBounce();
@@ -63,9 +68,9 @@ var ViewModel = function() {
 		}
 	}
 
+	// Sets the current location on the map, and populates the respective info window
 	this.selectLocation = function(selectedLocation) {
 		self.currentLocation(selectedLocation);
-		// TODO: (maybe) Ensure marker of currentLocation continues to bounce when the filter changes
 		self.locationsFiltered().forEach(function(location) {
 			if (location == selectedLocation)
 				location.marker.startBounce();

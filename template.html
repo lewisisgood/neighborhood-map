@@ -17,14 +17,14 @@
                         <tr><h5 class="table-title">Neighborhood<br>Map</h5></tr>
                     </thead>
                     <input type="text" id="filterInput" class="filter-input" data-bind="textInput: searchString" placeholder="Search...">
+                    <!-- Create a table row with each of the locations that match the search string -->
                     <tbody id="location-listing" data-bind="foreach: locationsFiltered">
                         <tr>
-                            <td id="location-item" class="location-item" data-bind="click: $parent.selectLocation, text: name"><p> </p><p></p><p></p></td>
+                            <td id="location-item" class="location-item" data-bind="click: $parent.selectLocation, text: name"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <!--TODO: implement correct window sizing in CSS-->
             <div id="map" class="map col-md-9">
             </div>
         </div>

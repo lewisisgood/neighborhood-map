@@ -1,3 +1,4 @@
+// Create hardcoded locations list
 var locations = [
 	{
 		name: 'Zilker Park',

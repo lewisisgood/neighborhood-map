@@ -1,7 +1,7 @@
 # Neighborhood Map
 An interactive map of one of my favorite neighborhoods.
 
-This project highlights some key locations with Google Maps markers on a map, using the Google Maps API. When a user clicks a location in the list on the left hand side, an info window is populated on the map for the location's respective marker. This info window contains information about the selected location, including a picture which is populated using the Foursquare API. Users can also search for specific locations in the list using the provided filter.
+This single page application highlights some facsinating locations with Google Maps markers on a map, using the Google Maps API. When a user clicks a location in the list on the left hand side, an info window is populated on the map for the location's respective marker. This info window contains information about the selected location, including a picture which is populated using the Foursquare API. Users can also search for specific locations in the list using the provided filter.
 
 ### Installing
 
@@ -17,25 +17,26 @@ Move into the new directory:
 cd neighborhood-map/
 ```
 
-xxx:
+Install all packages and dependencies to run the application:
 
 ```
 npm install
 ```
 
-xxx:
+Build the package with Webpack (and watch for code updates):
 
 ```
 npx webpack --watch
 ```
 
-Run the program with:
+Navigate to the dist folder:
 
 ```
-python project.py
+cd dist
 ```
 
-Open ```dist/index.html``` in your browser interact with the item catalog.
+Open ```index.html``` in the browser interact with the neighborhood map.
+
 
 ## Built With
 

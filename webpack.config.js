@@ -16,10 +16,6 @@ module.exports = {
       {test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,loader: 'url-loader',options: {limit: 10000}}
     ]
   },
-
-  mode: "development",
-
-
   plugins: [
 	new MiniCssExtractPlugin({
 	      // Options similar to the same options in webpackOptions.output
