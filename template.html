@@ -1,4 +1,3 @@
-<!---->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +11,21 @@
 <body>
     <div class="container-fluid">
         <div class="row app">
-            <!--TODO: separate CSS-->
             <div class="location-list col-md-3" style="">
                 <table>
                     <thead>
                         <tr><h5 class="table-title">Neighborhood<br>Map</h5></tr>
                     </thead>
-                    <!--TODO: add filter text box, button, and "hidden" functionality-->
                     <input type="text" id="filterInput" class="filter-input" data-bind="textInput: searchString" placeholder="Search...">
                     <tbody id="location-listing" data-bind="foreach: locationsFiltered">
                         <tr>
-                            <!--TODO: connect location list items to the markers-->
-                            <td id="location-item" class="location-item" data-bind="click: $parent.selectLocation, text: name"></td>
+                            <td id="location-item" class="location-item" data-bind="click: $parent.selectLocation, text: name"><p> </p><p></p><p></p></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!--TODO: implement correct window sizing in CSS-->
-            <div id="map" class="map-container-2 col-md-9">
+            <div id="map" class="map col-md-9">
             </div>
         </div>
     </div>

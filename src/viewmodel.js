@@ -25,7 +25,7 @@ var ViewModel = function() {
 		if (location.hasOwnProperty('marker'))
 			location.marker.setMap(null);
 	}
-	
+
 	// If the search string is not found in location.name, set location.hidden to true
 	this.locationsFiltered = ko.computed( function() {
 
@@ -40,7 +40,7 @@ var ViewModel = function() {
 				hideMarker(self.locationList[i]);
 			}
 		}
-		return filtered;		
+		return filtered;
 	}, this);
 
 	// This function populates the infowindow when the marker is clicked. We'll only allow
@@ -52,7 +52,7 @@ var ViewModel = function() {
 		  	self.infoWindow.marker = marker;
 		  	// TODO: Add picture from Foursquare to the map
 		  	console.log('<img src="' + self.currentLocation().imgSrc() + '"></div>');
-		  	self.infoWindow.setContent('<div>' + marker.title + 
+		  	self.infoWindow.setContent('<div>' + marker.title +
 		 		'</div><br><div><img src="' + self.currentLocation().imgSrc() + '"></div>');
 		  	self.infoWindow.open(self.map, marker);
 		  	// Make sure the marker property is cleared if the infowindow is closed.

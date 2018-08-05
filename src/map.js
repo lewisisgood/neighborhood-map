@@ -32,7 +32,7 @@ function initMap(googleMaps) {
 	    marker.startBounce = function () {
 		    this.setAnimation(googleMaps.Animation.BOUNCE);
 		};
-		
+
 		marker.stopBounce = function() {
 			this.setAnimation(null);
 		};
@@ -44,8 +44,8 @@ function initMap(googleMaps) {
 
 	    // Push the marker to our array of markers.
 	    markers.push(marker);
-	  	
     }
+
     viewmodel.map = map;
     viewmodel.infoWindow = largeInfoWindow;
 }
