@@ -22,13 +22,11 @@ p,
 
 .location-list {
 	min-height: 100%;
-	min-width: 190px;
-	display: inline-block;
-	height: 100%;
-	float: left;
 	z-index : 1;
 	background-color: #0E2F44;
 	position: absolute;
+	padding-right: 20px;
+	float: left;
 }
 
 .map {
@@ -38,7 +36,7 @@ p,
 }
 
 .table-title {
-	font-size: 24px;
+	font-size: 20px;
 }
 
 .filter-input {
@@ -53,25 +51,16 @@ p,
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
 	.location-list {
-		width: 190px;
+		width: 140px;
 	}
 	.table-title {
 		font-size: 16px;
 	}
-	.location-item {
+	.location-item,
+	.filter-input {
 		font-size: 10px;
-	}
-}
-
-
-@media screen and (min-width: 501px) {
-	.location-list {
-		width: 30%;
-	}
-	.map {
-		width: 70%;
 	}
 }
 
@@ -84,10 +73,9 @@ p,
 		margin-right: auto;
 	}
 	.location-list {
-		width: 30%;
+		width: 240px;
 	}
 	.map {
-		width: 70%;
-		max-width: 800px;
+		width: 1000px;
 	}
 }
