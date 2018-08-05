@@ -17,8 +17,6 @@ function initMap(googleMaps) {
       	// Get the position from the location array.
 	    var position = viewmodel.locationList[i].coordinates;
 	    var title = viewmodel.locationList[i].name;
-	    //TODO: add an image to the markers info window
-	    //var imgSrc = ko.observable(locations[i].imgSrc);
 	    // Create a marker per location, and put into markers array.
 	    var marker = new googleMaps.Marker({
 	    	position: position,
@@ -48,7 +46,6 @@ function initMap(googleMaps) {
 	    markers.push(marker);
 	  	
     }
-
     viewmodel.map = map;
     viewmodel.infoWindow = largeInfoWindow;
 }
