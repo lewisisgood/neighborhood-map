@@ -17,6 +17,8 @@ Move into the new directory:
 cd neighborhood-map/
 ```
 
+Add your Google Maps and Foursquare API keys to the ```config.json``` file. If you do not have them yet, visit the sites in the "Build With" section below to sign up for these free services.
+
 Install all packages and dependencies to run the application:
 
 ```
@@ -29,13 +31,7 @@ Build the package with Webpack (and watch for code updates):
 npx webpack --watch
 ```
 
-Navigate to the dist folder:
-
-```
-cd dist/
-```
-
-Open ```index.html``` in the browser, and have some fun with the neighborhood map.
+On your local machine, navigate to the dist folder ```neighborhood-map/dist/```. Open ```index.html``` in the browser, and have some fun with the neighborhood map!
 
 
 ## Built With

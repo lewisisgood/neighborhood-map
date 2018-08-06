@@ -1,0 +1,8 @@
+{
+	"gmapsApiKey": "YOUR_KEY_HERE",
+	"foursquare": {
+		"client_id": "YOUR_KEY_HERE",
+		"client_secret": "YOUR_KEY_HERE",
+		"v": "20180323"
+	}
+}
