@@ -36,11 +36,10 @@ function initMap(googleMaps) {
 		// Make the marker bounce when selected
 		marker.startBounce = function () {
 			this.setAnimation(googleMaps.Animation.BOUNCE);
-		};
-
-		// Make the marker stop bouncing when unselected
-		marker.stopBounce = function() {
-			this.setAnimation(null);
+			var self = this;
+			setTimeout(function () {
+				self.setAnimation(null);
+			}, 700);
 		};
 
 		// Create an onclick event to open an infowindow at each marker.

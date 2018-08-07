@@ -8,9 +8,10 @@ const config = require('./config.json');
 
 loadGoogleMapsApi({
 	key: config.gmapsApiKey,
-	libraries: ['places']
+	libraries: ['places'],
+	timeout: 8000
 }).then(map.init).catch(function (error) {
-	console.error(error)
+	window.alert(error);
 });
 
 ko.applyBindings(viewmodel);

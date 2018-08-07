@@ -17,7 +17,7 @@ p,
 .location-item {
 	color: lightgrey;
 	margin: 0;
-	padding-bottom: 0.7em;
+	padding-bottom: 1.3em;
 }
 
 .location-list {
@@ -50,7 +50,10 @@ p,
 	margin-bottom: 12px; /* Add some space below the input */
 }
 
-
+/*
+TODO: improve these CSS breakpoints and/or add
+add a hamburger icon with JS to minimize the left pane
+*/
 @media screen and (max-width: 768px) {
 	.location-list {
 		width: 140px;
@@ -60,7 +63,7 @@ p,
 	}
 	.location-item,
 	.filter-input {
-		font-size: 10px;
+		font-size: 13px;
 	}
 }
 

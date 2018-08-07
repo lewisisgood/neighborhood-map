@@ -38,7 +38,9 @@ var ViewModel = function() {
 		var filtered = [];
 
 		for (var i = 0; i < self.locationList.length; i++) {
-			if (self.locationList[i].name.toLowerCase().indexOf(self.searchString().toLowerCase()) != -1) {
+			var nameLower = self.locationList[i].name.toLowerCase();
+			var searchStringLower = self.searchString().toLowerCase();
+			if (nameLower.indexOf(searchStringLower) != -1) {
 				filtered.push( self.locationList[i] );
 				showMarker(self.locationList[i]);
 			}
@@ -56,14 +58,12 @@ var ViewModel = function() {
 		// Check to make sure the infowindow is not already opened on this marker.
 		if (self.infoWindow.marker != marker) {
 		  	self.infoWindow.marker = marker;
-		  	console.log('<img src="' + self.currentLocation().imgSrc() + '"></div>');
-		  	self.infoWindow.setContent('<div>' + marker.title +
-		 		'</div><br><div><img src="' + self.currentLocation().imgSrc() + '"></div>');
+		  	self.infoWindow.setContent('<div><strong>' + marker.title +
+		 		'</strong></div><br><div>Photo from Foursquare:<br><a href="https://www.foursquare.com/v/' + self.currentLocation().foursquare_venue_id + '" target="_blank"><img src="' + self.currentLocation().imgSrc() + '"></a></div>');
 		  	self.infoWindow.open(self.map, marker);
 		  	// Ensure the marker property is cleared if the infowindow is closed.
 		  	self.infoWindow.addListener('closeclick', function() {
 		    	self.infoWindow.marker = null;
-		    	marker.stopBounce();
 		  	});
 		}
 	}
@@ -71,12 +71,7 @@ var ViewModel = function() {
 	// Sets the current location on the map, and populates the respective info window
 	this.selectLocation = function(selectedLocation) {
 		self.currentLocation(selectedLocation);
-		self.locationsFiltered().forEach(function(location) {
-			if (location == selectedLocation)
-				location.marker.startBounce();
-			else
-				location.marker.stopBounce();
-		});
+		selectedLocation.marker.startBounce();
 		self.populateInfoWindow(selectedLocation.marker);
 	};
 }
