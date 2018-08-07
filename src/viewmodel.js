@@ -57,13 +57,13 @@ var ViewModel = function() {
 	this.populateInfoWindow = function(marker) {
 		// Check to make sure the infowindow is not already opened on this marker.
 		if (self.infoWindow.marker != marker) {
-		  	self.infoWindow.marker = marker;
-		  	self.infoWindow.setContent('<div><strong>' + marker.title +
+			self.infoWindow.marker = marker;
+			self.infoWindow.setContent('<div><strong>' + marker.title +
 		 		'</strong></div><br><div>Photo from Foursquare:<br><a href="https://www.foursquare.com/v/' + self.currentLocation().foursquare_venue_id + '" target="_blank"><img src="' + self.currentLocation().imgSrc() + '"></a></div>');
-		  	self.infoWindow.open(self.map, marker);
-		  	// Ensure the marker property is cleared if the infowindow is closed.
-		  	self.infoWindow.addListener('closeclick', function() {
-		    	self.infoWindow.marker = null;
+			self.infoWindow.open(self.map, marker);
+			// Ensure the marker property is cleared if the infowindow is closed.
+			self.infoWindow.addListener('closeclick', function() {
+				self.infoWindow.marker = null;
 		  	});
 		}
 	}
