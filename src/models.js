@@ -33,13 +33,13 @@ var Location = function(data) {
 		},
 		error: function(request, status, error) {
 			if (status == "timeout") {
-                window.alert('Foursquare API timeout');
-            } else {
-                // another error occured
-                window.alert("Error: " + request + status + error);
-            }
-        }
-    });
+				window.alert('Foursquare API timeout');
+			} else {
+				// another error occured
+				window.alert('Error: Foursquare images not loading right now');
+			}
+		}
+	});
 }
 
 module.exports = {
