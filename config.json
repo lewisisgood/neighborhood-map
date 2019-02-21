@@ -1,8 +1,8 @@
 {
-	"gmapsApiKey": "AIzaSyDTZjYJ-6fAaejWVFVJD4CDjPJc4W-iJhc",
+	"gmapsApiKey": "YOUR_KEY_HERE",
 	"foursquare": {
-		"client_id": "33UFNI1CEMQPXPCBLP2MWCDUQJJ0WLE2NCDGCDXL2CVJQG0I",
-		"client_secret": "I5LT2SB52K5G3G5PBJZIXAHBEAQ1IPONUO5VILT3MPFSVGTB",
+		"client_id": "YOUR_KEY_HERE",
+		"client_secret": "YOUR_KEY_HERE",
 		"v": "20180323"
 	}
 }
